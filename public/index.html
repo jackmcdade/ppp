@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What does this cost them? A purchsing-price parity calculator</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gradient text-white font-headline uppercase antialiased">
+    <div id="app" class="md:flex">
+
+        <div class="w-full md:w-1/3 md:flex items-center md:min-h-screen p-12">
+            <h1 class="text-center md:text-left font-headline text-xl md:text-2xl text-shadow leading-none uppercase md:mb-8">What does this cost them?</h1>
+        </div>
+
+        <div class="w-full md:w-2/3 mx-auto px-12 max-w-md md:min-h-screen md:flex md:flex-col justify-center items-center">
+            <h2 class="font-headline uppercase md:text-lg text-yellow">The U.S. Dollar does not scale well in many countries. See what your product costs people all around the world.</h2>
+            <div class='mt-12 w-full'>
+                <div class="flex items-center">
+                    <label for="value" class="md:text-lg w-1/2">Price in USD</label>
+                    <input type="number" v-model="value" class="md:text-lg w-1/2 px-2 py-1 rounded">
+                </div>
+                <div class="mt-4 flex items-center">
+                    <label for="value" class="md:text-lg w-1/2">Country</label>
+                    <select v-model="foreignCountry" class="w-1/2 md:text-lg">
+                        <option v-for="country in countryCodes" :selected="foreignCountry === country.value" :value="country.value" v-text="country.text"></option>
+                    </select>
+                </div>
+                <div class="mt-12 pt-12 border-t-2 border-yellow">
+                    <div>
+                        <span class="text-base pr-2">To them ${{ parseFloat(value).toLocaleString('en') }} feels more like</span>
+                        <span class="text-lg text-yellow">{{ percievedPrice }}</span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="text-base pr-2">To make it fair you could charge</span>
+                        <span class="text-lg text-yellow">{{ burgerPrice }}</span>
+                    </div>
+                </div>
+                <div class="mt-12 pt-12 border-t-2 border-yellow">
+                    <p>This is a purchasing-power parity (PPP) calcuation using <a href="https://www.economist.com/news/2019/01/10/the-big-mac-index" class="">The Big Mac index</a> from The Economist. It uses the relative cost of a Big Mac between countries to determine percieved buying power. This is just a prototype so please use the data with caution.</p>
+                    <p class="text-lg">Designed and built by <a href="https://twitter.com/jackmcdade">Jack McDade</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/bigmac.js"></script>
+    <script src="/js/currencies.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
