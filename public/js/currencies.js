@@ -60,10 +60,6 @@ var currencies = [
         value: "EGP"
     },
     {
-        text: "Euro area",
-        value: "EUR"
-    },
-    {
         text: "Britain",
         value: "GBP"
     },
