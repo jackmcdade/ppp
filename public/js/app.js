@@ -115,25 +115,21 @@ var app = new Vue({
     },
     computed: {
         burgerPrice: function burgerPrice() {
-            if (this.burgerValuation < 0) {
-                return parseFloat(Math.abs(this.value * this.burgerValuation)).toLocaleString('en', { style: 'currency', currency: 'USD' });
-            }
-            return this.value;
+            return parseFloat(this.value * this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
         },
         percievedPrice: function percievedPrice() {
-            if (this.burgerValuation < 0) {
-                return parseFloat(Math.abs(this.value / this.burgerValuation)).toLocaleString('en', { style: 'currency', currency: 'USD' });
-            }
-            return this.value;
+            return parseFloat(this.value / this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
         },
-        gdpPrice: function gdpPrice() {
-            if (this.gdpValuation < 0) {
-                return Math.abs(this.value * this.gdpValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
-            }
-            return this.value;
-        },
+
+        // gdpPrice() {
+        //     if (this.gdpValuation < 0) {
+        //         return Math.abs(this.value * this.gdpValuation).toLocaleString('en', { style: 'currency', currency: 'EUR' });
+        //     }
+        //     return this.value;
+        // },
         burgerValuation: function burgerValuation() {
-            return this.rates[this.foreignCountry].dollar_valuation / 100;
+            var tmp = this.rates[this.foreignCountry].dollar_valuation / 100;
+            return 1 - Math.abs(tmp);
         },
         gdpValuation: function gdpValuation() {
             return this.rates[this.foreignCountry].dollar_adj_valuation / 100;
