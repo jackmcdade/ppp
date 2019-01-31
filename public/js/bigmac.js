@@ -269,24 +269,6 @@ var rates = {
 	    yen_adj_valuation: -1.5,
 	    yuan_adj_valuation: -19.5
 	  },
-	  EUR: {
-	    Country: "Euro area",
-	    local_price: 4.05,
-	    dollar_ex: 0.87248614928238,
-	    dollar_price: 4.6419075,
-	    dollar_ppp: 0.725806451612903,
-	    GDP_dollar: 37309.0933792496,
-	    dollar_valuation: -16.8,
-	    euro_valuation: 0,
-	    sterling_valuation: 14,
-	    yen_valuation: 29.1,
-	    yuan_valuation: 52.1,
-	    dollar_adj_valuation: 2.6,
-	    euro_adj_valuation: 0,
-	    sterling_adj_valuation: 16.9,
-	    yen_adj_valuation: 30.6,
-	    yuan_adj_valuation: 6.8
-	  },
 	  GBP: {
 	    Country: "Britain",
 	    local_price: 3.19,
