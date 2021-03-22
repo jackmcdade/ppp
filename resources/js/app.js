@@ -1,6 +1,5 @@
 window.Vue = require('vue');
 
-
 var app = new Vue({
     el: '#app',
     data: {
@@ -14,8 +13,11 @@ var app = new Vue({
         burgerPrice() {
             return parseFloat(this.value * this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
         },
-        percievedPrice() {
+        perceivedPrice() {
             return parseFloat(this.value / this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
+        },
+        foreignCountryName() {
+            return this.countryCodes.find(country => country.value === this.foreignCountry).text;
         },
         // gdpPrice() {
         //     if (this.gdpValuation < 0) {
