@@ -117,8 +117,15 @@ var app = new Vue({
         burgerPrice: function burgerPrice() {
             return parseFloat(this.value * this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
         },
-        percievedPrice: function percievedPrice() {
+        perceivedPrice: function perceivedPrice() {
             return parseFloat(this.value / this.burgerValuation).toLocaleString('en', { style: 'currency', currency: 'USD' });
+        },
+        foreignCountryName: function foreignCountryName() {
+            var _this = this;
+
+            return this.countryCodes.find(function (country) {
+                return country.value === _this.foreignCountry;
+            }).text;
         },
 
         // gdpPrice() {
